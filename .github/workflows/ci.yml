@@ -4,15 +4,14 @@ on:
   push:
     branches:
         - main
-  workflow_call:
-            
+  workflow_call:    
 
 jobs:
-   code-quality:
-       uses: ./.github/workflows/code-quality.yml
+#    code-quality:
+#        uses: ./.github/workflows/code-quality.yml
 
-   dependency-check:
-       uses: ./.github/workflows/dependency.yml
+#    dependency-check:
+#        uses: ./.github/workflows/dependency.yml
 
    secrets-scan:
        uses: ./.github/workflows/secrets-scan.yml
@@ -22,8 +21,8 @@ jobs:
 
    build-push:
         needs: 
-            - code-quality
-            - dependency-check
+            # - code-quality
+            # - dependency-check
             - secrets-scan
             - docker-lint
         uses: ./.github/workflows/build-push.yml

@@ -1,13 +1,6 @@
 name: Code Quality
 on:
     workflow_call:
-        inputs:
-            DOCKERHUB_USER:
-                required: true
-                type: string
-            DOCKERHUB_TAG:
-                required: true
-                type: string
 jobs:
     code-quality:
         runs-on: ubuntu-latest

@@ -1,4 +1,4 @@
-name: Ecommerce CI
+name: Nodes CI
 
 on:
   push:

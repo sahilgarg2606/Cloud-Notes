@@ -1,0 +1,6 @@
+services:
+   web:
+    container_name: notes
+    image: ${DOCKERHUB_USER}/notes:${DOCKERHUB_TAG}
+    ports:
+      - "3000:3000"

@@ -1,6 +1,6 @@
 services:
    web:
     container_name: notes
-    image: ${DOCKERHUB_USER}/notes:${DOCKERHUB_TAG}
+    image: ${DOCKERHUB_USER}/cloudnotes:${DOCKERHUB_TAG}
     ports:
       - "3000:3000"

@@ -19,23 +19,23 @@ jobs:
 
       - name: Build Image
         run: |
-          docker build -t cloudNotes:${{ github.sha }} .
+          docker build -t cloudnotes:${{ github.sha }} .
 
       - name: Scan Image with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: cloudNotes:${{ github.sha }}
+          image-ref: cloudnotes:${{ github.sha }}
           format: table
           exit-code: '1'
           severity: CRITICAL
       - name: Tag Image
         run: |
-          docker tag cloudNotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:latest
-          docker tag cloudNotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:${{ github.ref_name }}
-          docker tag cloudNotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:${{ github.sha }}
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:latest
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.ref_name }}
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.sha }}
 
       - name: Push Image
         run: |
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:latest
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:${{ github.ref_name }}
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudNotes:${{ github.sha }}
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:latest
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.ref_name }}
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.sha }}

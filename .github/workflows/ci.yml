@@ -26,5 +26,5 @@ jobs:
             - secrets-scan
             - docker-lint
         uses: ./.github/workflows/build-push.yml
-
+        secrets: inherit
     

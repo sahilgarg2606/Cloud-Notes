@@ -30,12 +30,12 @@ jobs:
           severity: CRITICAL
       - name: Tag Image
         run: |
-          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:latest
-          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.ref_name }}
-          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.sha }}
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USER }}/cloudnotes:latest
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USER }}/cloudnotes:${{ github.ref_name }}
+          docker tag cloudnotes:${{ github.sha }} ${{ vars.DOCKERHUB_USER }}/cloudnotes:${{ github.sha }}
 
       - name: Push Image
         run: |
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:latest
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.ref_name }}
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/cloudnotes:${{ github.sha }}
+          docker push ${{ vars.DOCKERHUB_USER }}/cloudnotes:latest
+          docker push ${{ vars.DOCKERHUB_USER }}/cloudnotes:${{ github.ref_name }}
+          docker push ${{ vars.DOCKERHUB_USER }}/cloudnotes:${{ github.sha }}
